@@ -3,7 +3,11 @@ import Link from "next/link";
 import { ReactNode } from "react";
 import Logo from '@/public/logo.svg';
 import { DashboardItems } from '../components/dashboard/DashboardItems';
-import { DollarSign, Globe, Home } from 'lucide-react';
+import { CircleUser, DollarSign, Globe, Home } from 'lucide-react';
+import { ThemeToggle } from '../components/dashboard/ThemeToggle';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { Button } from '@/components/ui/button';
+import { LogoutLink } from '@kinde-oss/kinde-auth-nextjs/components';
 
 
 export const navLinks = [
@@ -44,6 +48,30 @@ export default function DashboardLayout({children}: {children : ReactNode}){
                         </nav>
                     </div>
                 </div>
+            </div>
+
+            <div className='flex flex-col'>
+                <header className='flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6'>
+                    <div className='ml-auto flex items-center gap-x-5'>
+                        <ThemeToggle />
+
+                        <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <Button variant="secondary" size="icon" className='rounded-full '>
+                                    <CircleUser className='h-5 w-5'/>
+                                </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align='end'>
+                                <DropdownMenuItem asChild>
+                                    <LogoutLink>
+                                        Log Out
+                                    </LogoutLink>
+                                </DropdownMenuItem>
+                            </DropdownMenuContent>
+                        </DropdownMenu>
+
+                    </div>
+                </header>
             </div>
         </section>
     )
