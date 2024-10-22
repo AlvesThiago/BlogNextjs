@@ -22,8 +22,8 @@ export const navLinks = [
         icon: Globe,
     },
     {
-        name: 'Pricing',
-        href: '/dashboard/pricing',
+        name: 'Preços',
+        href: '/dashboard/precos',
         icon: DollarSign,
 
     }
@@ -38,7 +38,7 @@ export default function DashboardLayout({children}: {children : ReactNode}){
                         <Link href="/" className="flex items-center gap-2 font-semibold">
                             <Image src={Logo} alt="Logo" className="size-8" />
 
-                            <h3 className="text-2xl ">Blog<span className="text-primary">Alltyh</span></h3>
+                            <h3 className="text-2xl "><span className="text-primary">Alltyh</span></h3>
                         </Link>
                     </div>
 
@@ -69,9 +69,11 @@ export default function DashboardLayout({children}: {children : ReactNode}){
                                 </DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu>
-
                     </div>
                 </header>
+                <main className='flex fley-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6'>
+                    {children}
+                </main>
             </div>
         </section>
     )
